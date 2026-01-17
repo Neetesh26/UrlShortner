@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>url Shortner </h2>
+    <% if (locals.shortId) { %>
+        <div>
+            <p>Your shortened URL is: http://localhost:8001/url/updatedget/<%=shortId %></p>
+        </div>
+    <% } %>
+    <div>
+        <form action="/url" method="POST">
+            <input type="text" name="url" placeholder="http://example.com" required />
+            <button type="submit">Shorten Url</button>
+        </form>
+    </div>
+    <div style="margin-top: 50px;">
+        <% if (locals.allUrls) { %>
+         <table border="1" cellpadding="10" cellspacing="0" >
+            <thead>
+                <tr>
+                    <th>original urls</th>
+                    <th>ShortId</th>
+                    <th>Redirect</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% allUrls.forEach(url => { %>
+                <tr>
+                    <td><%= url.redirectUrl %></td>
+                    <td><%= url.shortId %></td>
+                    <td><a href="/url/updatedget/<%= url.shortId %>">http://localhost:8001/url/updatedget/<%= url.shortId %></a></td>
+                    <td><%= url.urlVisited.length %></td>
+                <% }) %>
+            </tbody>
+         </table>
+        <% } %>
+    </div>
+
+</body>
+</html>
