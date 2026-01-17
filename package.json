@@ -2,7 +2,7 @@
   "dependencies": {
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
-    "express": "^5.2.1",
+    "express": "^4.22.1",
     "mongoose": "^9.0.1",
     "shortid": "^2.2.17"
   },
@@ -11,8 +11,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Neetesh-p",
